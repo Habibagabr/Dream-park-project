@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+    <title>Retails an shops | Dream Park</title>
+    <meta charset="utf-8">
+    <!-- Link to Bootstrap CSS by CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to Bootstrap Java script for interaction like the navbar when collapsing -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+        body {
+            background: url('images/scrolling_photo.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            position: relative;
+            direction: ltr;
+        }
+
+            body::before {
+                content: ''; /* Create an empty pseudo-element */
+                position: fixed; /* Use fixed positioning to cover the entire viewport */
+                top: 0; /* Start from the top */
+                left: 0; /* Start from the left */
+                width: 100vw; /* Full viewport width */
+                height: 100vh; /* Full viewport height */
+                background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+                z-index: -1; /* Place it behind the content */
+            }
+
+        .retail-shop-container {
+            margin: auto;
+            text-align: center;
+            margin-bottom: 100px;
+            width: 100%;
+            border-radius: 40px;
+        }
+
+        .shop-carousel {
+            width: 90%;
+            height: 80%;
+            margin: 0 auto;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 40px;
+        }
+
+
+        .shop-item-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items horizontally */
+            gap: 10px; /* Space between items */
+            margin-top: 20px; /* Space between carousel and shop items */
+        }
+
+        .shop-item {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+            .shop-item:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+                transform: scale(1.05); /* Slight zoom in when hovered */
+            }
+
+            .shop-item:before {
+                content: "";
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                background-color: rgba(1, 1, 1, 0.5);
+                color: white;
+                font-size: 20px;
+                font-weight: bolder;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <!-- Responsive navbar container -->
+    <nav class="navbar navbar-expand-md fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/navbar Logo.png" alt="Dreampark Logo">
+            </a>
+            <button class="navbar-toggler" style="background-color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon" style="background-color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-auto bg-dark">
+                    <li class="nav-item"><a class="nav-link navbar_item" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="rides.html">Rides & Entertainment</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="resturants.html">Restaurants</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="retails.html">Retails</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="contact_us.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--retails heading-->
+    <div class="container-fluid heading_container" style="margin-top:100px;">
+        <p class="h2">Retails and Shops </p>
+        <p class="h5 heading_container_underline"></p>
+    </div>
+
+    <div class="container-fluid" style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="p-4 text-white text-center" style="border-radius: 30px 30px 30px 0; max-width: 800px; margin: auto; background-color: rgba(75, 147, 191,0.6); box-shadow: 2px 4px 8px rgba(0, 0, 0, 1);">
+            <h2 style="font-size:1.5rem; font-weight: bold; color: white; margin-bottom: 20px;">
+                Discover Unique Souvenirs and Merchandise
+
+            </h2>
+            <p style="font-size: 1rem; color: white; line-height: 1.6;">
+                Visit our Dream Park retail shop to find a variety of exclusive souvenirs and merchandise. Whether you’re looking for a memento to remember your visit or a special gift for a loved one, our store has something for everyone
+            </p>
+        </div>
+        <img src="images/toy1.png" style="margin-top:-90px;margin-left:100px;width:200px;height:150px;">
+        <img src="images/toy3.png" style="margin-top:-530px;margin-left:600px;width:200px;height:150px;" />
+
+    </div>
+
+
+    <div id="retail-shop-container"></div>
+
+    <!--footer-->
+    <footer>
+        <div class="footer-container" style="padding-top: 20px;">
+            <div class="footer-left">
+                <h3>Dream Park</h3>
+                <p>we strive to deliver exceptional service and unforgettable experiences. Contact us for any questions or assistance to ensure your visit is as enjoyable as possible.</p>
+            </div>
+
+            <div class="footer-center">
+                <h3>Contact Us</h3>
+                <p><a href="https://maps.app.goo.gl/XRsSusJW3dy91qNy6 " target="_blank"><i class="fas fa-map-marker-alt"></i> Wahat Road - Dreamland (223.52 km), 12566 Cairo, Cairo Governorate, Egypt</a></p>
+                <p><a href="#"><i class="fas fa-phone"></i> 19355 </a> </p>
+                <p><a href="#"><i class="fas fa-envelope"></i>marketing@dreamparkegypt.com</a></p>
+            </div>
+
+            <div class="footer-right">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/DreamparkEg" target="_blank"><i class="fab fa-facebook-f facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter twitter"></i></a>
+                    <a href="https://youtu.be/BPKdlEhd4UI?feature=shared" target="_blank">
+                        <i class="fab fa-youtube youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dreamparkeg/" target="_blank"><i class="fab fa-instagram instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="text-align:center; padding-top: 20px; color: white;">
+            <p>&copy; 2024 Dream park. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const data = [
+            {
+                shopImages: ['images/store1.jpeg ', 'images/store2.jpeg', 'images/store3.jpeg'], // Array of 3 images
+                itemImages: ['images/games.jpeg', 'images/toys.jpeg'],
+                itemNames: ['Games', 'Toys'],
+                shopName: 'Doupy Land'
+            },
+            {
+                shopImages: ['images/store7.jpeg ', 'images/store5.jpeg', 'images/store4.jpeg'], // Array of 3 images
+                itemImages: ['images/games.jpeg', 'images/toys.jpeg', 'images/skateboard.jpeg'],
+                itemNames: ['Games', 'Toys', 'Skateboard'],
+                shopName: 'Fun Land'
+            },
+            {
+                shopImages: ['images/store4.jpeg ', 'images/store5.jpeg', 'images/store6.jpeg'], // Array of 3 images
+                itemImages: ['images/games.jpeg', 'images/toys.jpeg', 'images/skateboard.jpeg'],
+                itemNames: ['Games', 'Toys', 'Skateboard'],
+                shopName: 'Fun Time'
+            }
+        ];
+
+        function createCarousel(items) {
+            return `
+                                <div id="carouselDemo" class="carousel slide" data-ride="carousel" style="width:60%;height:60%;margin:auto;margin-bottom:20px;">
+                                    <div class="carousel-indicators">
+                                        ${items.map((_, index) => `<button type="button" data-target="#carouselDemo" data-slide-to="${index}" ${index === 0 ? 'class="active"' : ''}></button>`).join('')}
+                                    </div>
+                                    <div class="carousel-inner">
+                                        ${items.map((image, index) => `
+                                            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                                                <img src="${image}" alt="Shop Image" class="d-block" style="width:100%">
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselDemo" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselDemo" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            `;
+        }
+
+        function createShopItems(items, names) {
+            return `
+                                <div class="shop-item-container">
+                                    ${items.map((item, index) => `
+                                        <div class="shop-item" style="background-image:url('${item}')">
+                                            <p style="color:white;text-align:center;margin-top:5px;">${names[index]}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `;
+        }
+
+        function generateContent(data) {
+            return data.map(shop => `
+                                <div class="retail-shop-container">
+                                    <div class="content">
+                                        ${createCarousel(shop.shopImages)}
+                                        <div class="container-fluid mt-3">
+                                            <h3 style="width:fit-content;margin:auto;color:white">${shop.shopName}</h3>
+                                            ${createShopItems(shop.itemImages, shop.itemNames)}
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('');
+        }
+
+        document.getElementById('retail-shop-container').innerHTML = generateContent(data);
+    </script>
+</body>
+</html>

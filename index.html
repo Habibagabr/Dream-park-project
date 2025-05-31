@@ -1,0 +1,625 @@
+<html lang="en">
+<head>
+    <title>Home | Dream Park</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Link to Bootstrap CSS by CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to Bootstrap Java script for make interaction like the navbar when collapsing -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+        body {
+            background-color: #1F2326;
+            direction: ltr;
+        }
+            
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        /* welcoming container "video + operating time + dopy character " --> */
+        /* video + dopy character*/
+        .video_dreampark_title {
+            font-size: 130px;
+            opacity: 0.3;
+            color: white;
+            font-weight: bold;
+        }
+        .dopy_homepage_character {
+            display: none;
+        }
+        @media (min-width: 1200px) {
+            .dopy_homepage_character {
+                display: block;
+                width: 500px;
+                height: 100%;
+                position: absolute;
+                margin-top: -450px;
+                margin-left: -10px;
+            }
+
+                .dopy_homepage_character img {
+                    width: 250px;
+                    height: 450px;
+                    margin-bottom: 50px;
+                }
+        }
+
+        /* operation time */
+        .time_operation {
+            position: absolute;
+            width: 30vw;
+            height: 20vh;
+            border-radius: 50px 0 50px 0;
+            text-align: center;
+            animation: growWidth 1s ease-out forwards;
+        }
+        .operation_time_day {
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            animation-name: text-appearing;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards
+        }
+
+        .operation_time_hour {
+            color: white;
+            opacity: 0;
+            animation-name: text-appearing;
+            animation-delay: 0.9s;
+            animation-duration: 0.7s;
+            animation-fill-mode: forwards
+        }
+       
+        /*the operation time container animation*/
+        @keyframes growWidth {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 30vw; /* Target width */
+            }
+        }
+        /*the operation time text animation*/
+        @keyframes text-appearing {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* tickets */
+        .ticket-container {
+            width: 100%;
+            height: 80%;
+            margin-top: -100px;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ticket {
+            width: 20%;
+            height: 70%;
+            margin: auto;
+            text-align: center;
+            background-size: cover;
+        }
+             .silver {
+               background-color:#145E8C;
+            }
+             .silver-comboo {
+                background-color: #D93B75;
+            }
+        .golden {
+            background-color: #ffd800;
+        }
+        .family-ticket {
+
+            background-color: #ff6600;
+        }
+       
+            .ticket p {
+                width:fit-content;
+                height:fit-content;
+                margin-top:10%;
+                font-weight:800;
+                font-size:15px;
+                padding:5px;
+            }
+            .ticket h2 {
+                color: white;
+                font-weight: bolder;
+                margin-top: 20px;
+            }
+            .prices {
+                 width: 100%;
+                 height: 80%;
+                 margin-top: -100px;
+                 display: flex; 
+                 margin: auto; 
+                 align-items: center; 
+                 justify-content: space-between;
+                 margin-top:-250px;
+            }
+                .prices p {
+                    width: fit-content;
+                    height: fit-content;
+                    padding: 5px;
+                    color:black;
+                    margin: auto; 
+                    font-weight: 800;
+                    font-size: 20px;
+                    border-radius: 20px; 
+                    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+                }
+                .prices  .silver-p{
+                    background-color:#0367A6
+                }
+                    .prices  .silver-comboo-p {
+                        background-color: #D93B75
+                    }
+                    .prices .golden-p {
+                        background-color: #ffd800
+                    }
+                    .prices  .family-p {
+                        background-color: #ff6600
+                    }
+
+        /* scrolling photo */
+        .scrolling_photo {
+            width: 100%;
+            height: 25%;
+            margin-top: -50px;
+            background-image: url(images/scrolling_photo.jpeg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        .scrolling_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            text-align: center;
+            align-content: center;
+            color: white;
+        }
+
+            .scrolling_overlay h2,
+            .scrolling_overlay h4 {
+                font-size: 36px;
+                font-weight: bold;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+            }
+
+            /*achivements*/
+        .achievment_parent {
+            width: 100%;
+            height: 20%;
+            background-color: red;
+            margin-top: 500px;
+        }
+
+        .achievments_container {
+            width: 90%;
+            height: fit-content;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .achievment {
+            margin-top: 50px;
+        }
+
+            .achievment .img {
+                width: 70px;
+                height: 70px;
+                margin: auto;
+                background-size: cover;
+            }
+
+            .achievment h2 {
+                color: white;
+                transition: 0.5s;
+                text-align: center;
+                font-size: 17px;
+                font-weight: bolder;
+            }
+
+            .achievment p {
+                color: white;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .achievment:hover h2 {
+                color: #D93B75;
+                font-size: 25px;
+            }
+
+        .one {
+            background: url(images/park.png)
+        }
+
+        .two {
+            background: url(images/family.png)
+        }
+
+        .three {
+            background: url(images/ticket.png)
+        }
+
+        .four {
+            background: url(images/staff.png)
+        }
+
+        .doppy_offers_photo {
+            width: 70px;
+            height: 100px;
+            background-image: url(images/offers_doppy.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            position: absolute; /* Absolute positioning */
+            top: 0; /* Position at the top */
+            right: 0; /* Position at the right */
+            margin-top: -300px; /* Remove the negative margin */
+        }
+
+        .offers_button {
+            margin-top: -800px;
+            display: inline;
+            border-radius: 20px 20px 0 20px;
+            background-color: #027333;
+            border: 2px solid black;
+            font-weight: bolder;
+            position: absolute; /* Absolute positioning */
+            top: 0; /* Position at the top */
+            right: 70px; /* Position at the right */
+            margin-top: -300px; /* Remove the negative margin */
+        }
+
+        .offers-modal-body {
+            width: 500px;
+            height: 500px;
+            background-image: url(images/offer.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .offers_div {
+            width: 20%;
+            height: 20%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 10px 0 0 30px;
+            z-index: 20;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Responsive navbar container -->
+    <nav class="navbar navbar-expand-md fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/navbar Logo.png" alt="Dreampark Logo">
+            </a>
+            <button class="navbar-toggler" style="background-color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon" style="background-color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-auto bg-dark">
+                    <li class="nav-item"><a class="nav-link navbar_item" href="index.html" data-key="home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="rides.html" data-key="rides">Rides & Entertainment</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="resturants.html" data-key="restaurant">Restaurants</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="retails.html" data-key="retails">Retails</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="contact_us.html" data-key="contact_us">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- welcoming container "video + operating time + dopy character " -->
+    <div class="container-fluid" style="position:relative;height:100vh;width:100%;z-index:-1">
+        <div class="ratio ratio-16x9" style="height:100vh;">
+            <video autoplay muted loop>
+                <source src="Video/top Video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="container-fluid overlay">
+            <h1 class="video_dreampark_title" data-key="dreampark">DREAM PARK</h1>
+        </div>
+        <!-- Responsive operation time container -->
+        <div class="container-fluid time_operation" style="top: 70%; left: 65%; background-color: #D93B75; ">
+            <h3 class="operation_time_day" data-key="weekdays">Weekdays</h3>
+            <h2 class="operation_time_hour" data-key="weekdays_times">from 10:00 AM to 07:00 PM</h2>
+
+        </div>
+        <div class="container-fluid time_operation" style="background-color: #145E8C; top: 85%; left: 65%;">
+            <h3 class="operation_time_day" data-key="friday">Friday</h3>
+            <h2 class="operation_time_hour" data-key="friday_times">from 10:00 AM to 09:00 PM</h2>
+
+        </div>
+        <div class="dopy_homepage_character">
+            <img src="images/doby.png" class="rounded" />
+        </div>
+    </div>
+
+    <!--Tickets heading-->
+    <div class="container-fluid heading_container" style="margin-top:100px;">
+        <p class="h2" data-key="tickets">Tickets</p>
+        <p class="h5 heading_container_underline" style="width:80px"></p>
+    </div>
+
+    <!-- Tickets -->
+    <div class="ticket-container">
+        <div class="ticket silver">
+            <h2 class="ticket-title" data-key="silver_ticket">Silver Ticket</h2>
+            <p class="ticket-description" data-key="silver_ticket_description">
+                - Allowing you to play any free raid<br />
+                - Unlimited access to all free raids
+            </p>
+            <img src="images/free_raid.png" class="free-raid" style="margin-top: 10px; margin-left: 152px; width: 100px; height: 100px;" />
+        </div>
+
+        <div class="ticket silver-comboo">
+            <h2 class="ticket-title" data-key="silver_combo_ticket">Silver-comboo</h2>
+            <p class="ticket-description" data-key="silver_combo_ticket_description">
+                - Allowing you to play any free raid<br />
+                - Unlimited access to all free raids<br />
+                - Free single meal
+            </p>
+            <img src="images/free_raid.png" class="free-raid" style="margin-top: -12px; margin-left: 152px; width: 100px; height: 100px;" />
+            <img src="images/meal.png" class="meal" style="margin-left: -200px; width: 100px; height: 100px; margin-top: -75px;" />
+        </div>
+
+        <div class="ticket golden" style="position:relative">
+            <h2 class="ticket-title" data-key="golden_ticket">Golden Ticket</h2>
+            <p class="ticket-description" data-key="golden_ticket_description">
+                - Unlimited access to all free raids<br />
+                - Free single meal<br />
+                - 4 paid raids for free
+            </p>
+            <img src="images/free_raid.png" class="free-raid" style="margin-top: 10px; margin-left: 152px; width: 100px; height: 100px;" />
+            <img src="images/meal.png" class="meal" style="position: absolute; margin-left: -130px; margin-top: -70px; width: 100px; height: 100px;" />
+            <img src="images/paid_raid.png" class="paid-raid" style="margin-top:-160px;margin-left:-170px; width: 200px;height: 200px;" />
+        </div>
+
+        <div class="ticket family-ticket">
+            <h2 class="ticket-title" data-key="family_ticket">Family Ticket</h2>
+            <p class="ticket-description" data-key="family_ticket_description">
+                - Each ticket allowing you to play any free raid<br />
+                - Each ticket has Unlimited access to all free raids
+            </p>
+            <img src="images/free_raid.png" class="free-raid" style="margin-top: 10px; margin-left: 152px; width: 100px; height: 100px;" />
+            <img src="images/family.png" class="family" style="width: 150px; height: 150px; margin-top: -120px; margin-left:-240px;" />
+        </div>
+    </div>
+
+    <!-- Tickets prices -->
+    <div class="prices">
+        <p data-key="ticket_price" class="silver-p">Price: 250 LE</p>
+        <p data-key="ticket_price" class="silver-comboo-p">Price: 300 LE</p>
+        <p data-key="ticket_price" class="golden-p">Price: 430 LE</p>
+        <p data-key="ticket_price" class="family-p">Price: 940 LE</p>
+    </div>
+
+    <!--scrolling photo-->
+    <div class="scrolling_photo">
+        <div class="scrolling_overlay">
+            <h2>Experience Advanrure like never before</h2>
+            <h4>Your dream park awaits!</h4>
+        </div>
+    </div>
+
+    <!-- About us heading Dream Park -->
+    <div class="container-fluid heading_container" style="margin-top:100px;">
+        <p class="h2">About us</p>
+        <div style="margin:auto;width:fit-content">
+            <p style="color: #D93B75; font-size: 25px; font-weight: bolder; display: inline;">Dream</p>
+            <p style=" font-size: 22px; font-weight: bold; margin-left: 2px; color: white; display: inline;">Big,</p>
+            <p style="color: #D93B75; font-size: 25px; font-weight: bolder; display: inline;">Play</p>
+            <p style=" font-size: 22px; font-weight: bold; margin-left: 2px; color: white; display: inline;">Bigger – Only at Dream Park!</p>
+        </div>
+        <p class="h5 heading_container_underline"></p>
+    </div>
+
+
+    <!-- About us Dream Park -->
+    <div class="container mt-3">
+        <div class="mt-4 text-white rounded" style="display:inline;float:left;">
+            <h3>
+                Dream Park History and Location
+            </h3>
+            <p style="width:550px">Dreampark, established in 1999, is the leading amusement park in Egypt and the Middle East. Designed by the renowned Canadian firm Forrec, creators of Universal Studios and Mall of America, the park spans 150 acres in Dreamland, 6th of October City. As a member of IAAPA, Dreampark offers entertainment for all ages with 31 rides, including 9 for kids and 10 thrilling rides, plus a simulator theater. The park also features over 15 food outlets, 5 souvenir shops, and a convenient train for easy access throughout the park.</p>
+            <h3>
+                Why Dreampark is your destination for Fun?
+            </h3>
+            <p style="width:550px">The park also includes two theaters ( Children thetre & A Roman theatre) which present wonderful and interesting shows. Being more unique, the park comprises the most largest concert area . Safety on all rides and equipment is assured with safety certification from the world famous T.U.V. Rhineland. Dreampark can accommodate more than 30000 visitors per day, Tickets prices give an unlimited access to all rides and games.</p>
+        </div>
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel" style="display: inline; float: right; width: 500px; margin-top: 90px">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/gate.jpg" alt="Los Angeles" class="d-block" style="width:100%;height:300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/second.jpg" alt="Chicago" class="d-block" style="width: 100%; height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/third.jpg" alt="New York" class="d-block" style="width:100%;height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/fourth.jpg" alt="New York" class="d-block" style="width:100%;height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/fifth.jpg" alt="New York" class="d-block" style="width:100%;height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/sixth.jpg" alt="New York" class="d-block" style="width:100%;height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/seventh.jpg" alt="New York" class="d-block" style="width:100%;height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/eights.jpg" alt="New York" class="d-block" style="width: 100%; height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/ninth.jpg" alt="New York" class="d-block" style="width: 100%; height: 300px">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/tenth.jpg" alt="New York" class="d-block" style="width: 100%; height: 300px">
+                </div>
+
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Achievments container-->
+
+    <div class="achievments_container">
+        <div class="achievment">
+            <div class="img one"></div>
+            <h2>Exciting Rides</h2>
+            <p>
+                Discover a wide variety of thrilling rides and attractions for all ages in our amusement park!
+            </p>
+        </div>
+        <div class="achievment">
+            <div class="img two"></div>
+            <h2>Families Visiting Us</h2>
+            <p style="text-align: center; font-size: 12px;color:white">
+                Thousands of families choose our park every year for unforgettable fun and memories.
+            </p>
+        </div>
+        <div class="achievment">
+            <div class="img three"></div>
+            <h2>Tickets Sold Out</h2>
+            <p style="text-align: center; font-size: 12px;color:white">
+                Our park continues to attract record crowds with thousands of tickets sold out each season.
+            </p>
+        </div>
+        <div class="achievment">
+            <div class="img four"></div>
+            <h2>Dedicated Park Staff</h2>
+            <p style="text-align: center; font-size: 12px;color:white">
+                A team of highly trained staff ensures a safe and enjoyable experience for all our visitors.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!--Offers button-->
+    <div class="offers_div">
+        <button type="button" class="btn btn-dark offers_button" data-bs-toggle="modal" data-bs-target="#myModal">
+            Today's Offers
+        </button>
+        <div class="doppy_offers_photo"></div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered model_class">
+            <div class="offers-modal-body ">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <footer>
+        <div class="footer-container" style="padding-top: 20px;">
+            <div class="footer-left">
+                <h3 style="color: #F2E41D">Dream Park</h3>
+                <p>we strive to deliver exceptional service and unforgettable experiences. Contact us for any questions or assistance to ensure your visit is as enjoyable as possible.</p>
+            </div>
+
+            <div class="footer-center">
+                <h3 style="color: #0367A6">Contact Us</h3>
+                <p><a href="https://maps.app.goo.gl/XRsSusJW3dy91qNy6 " target="_blank"><i class="fas fa-map-marker-alt"></i> Wahat Road - Dreamland (223.52 km), 12566 Cairo, Cairo Governorate, Egypt</a></p>
+                <p><a href="#"><i class="fas fa-phone"></i> 19355 </a> </p>
+                <p><a href="#"><i class="fas fa-envelope"></i>marketing@dreamparkegypt.com</a></p>
+            </div>
+
+            <div class="footer-right">
+                <h3 style="color: #D93B75 ">Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/DreamparkEg" target="_blank"><i class="fab fa-facebook-f facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter twitter"></i></a>
+                    <a href="https://youtu.be/BPKdlEhd4UI?feature=shared" target="_blank">
+                        <i class="fab fa-youtube youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dreamparkeg/" target="_blank"><i class="fab fa-instagram instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="text-align:center; padding-top: 20px; color: white;">
+            <p>&copy; 2024 Dream park. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="javascript/java.js">
+    </script>
+
+
+
+
+</body>
+</html>

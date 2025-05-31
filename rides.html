@@ -1,0 +1,638 @@
+<html lang="en">
+<head>
+    <title>Rides & Entertainment | Dream Park</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to Bootstrap CSS by CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to Bootstrap Java script for make interaction like the navbar when collapsing -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <style>
+        body {
+            background: url('images/third.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            position: relative;
+            direction: ltr;
+        }
+
+            body::before {
+                content: ''; /* Create an empty pseudo-element */
+                position: fixed; /* Use fixed positioning to cover the entire viewport */
+                top: 0; /* Start from the top */
+                left: 0; /* Start from the left */
+                width: 100vw; /* Full viewport width */
+                height: 100vh; /* Full viewport height */
+                background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+                z-index: -1; /* Place it behind the content */
+            }
+
+        /*section title*/
+        .section-title {
+            width: 250px;
+            height: 250px;
+            background-image: url(images/shape.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-top: -20px;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+        }
+
+            .section-title p {
+                margin: 0; /* Remove top margin for better centering */
+                text-shadow: 2px 2px rgba(1,1,1,0.8);
+                font-weight: bold;
+            }
+        .ride-container {
+            margin-top: -20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .ride-card {
+            border: 1px solid #D93B75;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px;
+            height: 250px;
+            width: 250px; /* Adjust as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            background-color: #F2B90F;
+            position: relative;
+        }
+
+            .ride-card::before {
+                content: '';
+                position: absolute;
+                height: 0;
+                width: 0;
+                top: 0;
+                left: 0;
+                background-color: rgba(0,0,0,0.8);
+            }
+
+            .ride-card:hover {
+                box-shadow: 20px 4px 8px rgba(1, 1, 1, 1);
+            }
+
+                .ride-card:hover .ride-info {
+                    visibility: visible;
+                    transition: 1.25s;
+                }
+
+                .ride-card:hover::before {
+                    height: 100%;
+                    width: 100%;
+                    transition: 1s;
+                }
+
+        .ride-image {
+            width: 100%;
+            height: 100%; /* Maintain aspect ratio */
+        }
+
+        .ride-info {
+            position: absolute;
+            height: fit-content; /* Adjust as needed */
+            display: flex;
+            bottom: 10px; /* Align it to the bottom of the card */
+            left: 0;
+            right: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            z-index: 1;
+            border-radius: 20px;
+            background-color: rgba(1,1,1,0.5);
+            width: fit-content;
+            margin: auto;
+        }
+
+        .ride-details {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 5px;
+            bottom: 0px; /* Align it to the bottom of the card */
+            left: 0;
+            right: 0;
+            visibility: hidden;
+            margin-top: 20px;
+        }
+
+        .ride-card:hover .ride-details {
+            visibility: visible;
+        }
+
+            .ride-card:hover .ride-details p {
+                opacity: 1;
+                transition: 1s
+            }
+
+
+        .ride-details p {
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            display: inline-block;
+            opacity: 0;
+            border-radius: 10px;
+            background-color: #D93B75;
+            padding: 2px;
+            margin-right: 5px;
+        }
+
+
+        .ride-info p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .show-more-btn,
+        .show-less-btn {
+            display: inline;
+            padding: 5px;
+            border-radius: 20px;
+            background-color: #145E8C;
+            color: white;
+            margin-left: 550px;
+            margin-top: 50px;
+        }
+
+            .show-less-btn:hover,
+            .show-more-btn:hover {
+                box-shadow: 20px 4px 8px rgba(1, 1, 1, 1);
+            }
+
+        .rule_container {
+            width: 90%;
+            height: fit-content;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .rule {
+            margin-top: 50px;
+        }
+
+            .rule .img {
+                width: 70px;
+                height: 70px;
+                margin: auto;
+                background-size: cover;
+            }
+
+            .rule p {
+                color: white;
+                text-align: center;
+                font-size: 12px;
+            }
+
+        
+
+
+        .one_raid {
+            background: url(images/safety.png)
+        }
+
+        .two_raid {
+            background: url(images/hair-clip.png)
+        }
+
+        .three_raid {
+            background: url(images/person.png)
+        }
+
+        .four_raid {
+            background: url(images/arrow.png)
+        }
+
+        .five_raid {
+            background: url(images/no-fast-food.png)
+        }
+
+        .six_raid {
+            background: url(images/money.png)
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+    <!-- Responsive navbar container -->
+    <nav class="navbar navbar-expand-md fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/navbar Logo.png" alt="Dreampark Logo">
+            </a>
+            <button class="navbar-toggler" style="background-color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon" style="background-color: white;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-auto bg-dark">
+                    <li class="nav-item"><a class="nav-link navbar_item" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="rides.html">Rides & Entertainment</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="resturants.html">Restaurants</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="retails.html">Retails</a></li>
+                    <li class="nav-item"><a class="nav-link navbar_item" href="contact_us.html">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- rides and entertainment heading Dream Park -->
+    <div class="container-fluid heading_container" style="margin-top:100px;">
+        <p class="h2">Rides and Entertainment </p>
+        <div class="about_us_text_container" style="margin:auto;width:fit-content">
+            <p style="color: #D93B75; font-size: 25px; font-weight: bolder; display: inline;">Capture</p>
+            <p style=" font-size: 22px; font-weight: bold; margin-left: 2px; color: white; display: inline;">the Essence of Adventure</p>
+        </div>
+        <p class="h5 heading_container_underline"></p>
+    </div>
+    <img style="width:20%;height:30%;margin-left:1000px;margin-top:-50px" src="images/dopy1.png" />
+    <!--spyscrolling-->
+    <div class="rides-container">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm" style="margin-left:250px;margin-top:-50px;display:inline-block">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: white; border-radius: 20px; padding: 2px; background-color: #D93B75;margin-right:20px">
+                            <a class="nav-link" style="color:white" href="#section1">Free Rides</a>
+                        </li>
+                        <li class="nav-item" style="color: white; border-radius: 20px; padding: 2px; background-color: #D93B75; margin-right: 20px">
+                            <a class="nav-link" style="color:white" href="#section2">Paid Rides</a>
+                        </li>
+                        <li class="nav-item" style="color: white; border-radius: 20px; padding: 2px; background-color: #D93B75; margin-right: 20px">
+                            <a class="nav-link" style="color:white" href="#section3">Kids Raids</a>
+                        </li>
+                        <li class="nav-item" style="color: white; border-radius: 20px; padding: 2px; background-color: #D93B75; margin-right: 20px">
+                            <a class="nav-link" style="color:white" href="#section4">Adult Raids</a>
+                        </li>
+                        <li class="nav-item" style="color: white; border-radius: 20px; padding: 2px; background-color: #D93B75; margin-right: 20px">
+                            <a class="nav-link" style="color:white" href="#section5">Theaters</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="section1" class="container-fluid text-white" style="padding:100px 20px;height:fit-content;margin-top:-120px;">
+
+                <div class="section-title">
+                    <p class="h2">Free rides</p>
+                </div>
+
+                <div id="ride-container1" class="ride-container">
+                    <!-- Ride cards will be added here dynamically -->
+                </div>
+
+                <button id="show-more-btn1" class="show-more-btn">Show More</button>
+                <button id="show-less-btn1" class="show-less-btn" style="display:none;">Show Less</button>
+
+            </div>
+
+            <div id="section2" class="container-fluid text-white" style="padding: 100px 20px; height: fit-content; margin-top: -250px;">
+
+                <div class="section-title">
+                    <p class="h2">Paid rides</p>
+                </div>
+
+                <div id="ride-container2" class="ride-container">
+                    <!-- Ride cards will be added here dynamically -->
+                </div>
+
+                <button id="show-more-btn2" class="show-more-btn">Show More</button>
+                <button id="show-less-btn2" class="show-less-btn" style="display:none;">Show Less</button>
+
+
+
+            </div>
+
+            <div id="section3" class="container-fluid text-white" style="padding: 100px 20px; height: fit-content; margin-top: -250px;">
+
+                <div class="section-title">
+                    <p class="h2">Kids rides</p>
+                </div>
+
+                <div id="ride-container3" class="ride-container">
+                    <!-- Ride cards will be added here dynamically -->
+                </div>
+
+
+                <button id="show-more-btn3" class="show-more-btn">Show More</button>
+                <button id="show-less-btn3" class="show-less-btn" style="display:none;">Show Less</button>
+
+
+            </div>
+            <div id="section4" class="container-fluid text-white" style="padding: 100px 20px; height: fit-content; margin-top: -250px;">
+
+                <div class="section-title">
+                    <p class="h2">Adults rides</p>
+                </div>
+
+                <div id="ride-container4" class="ride-container">
+                    <!-- Ride cards will be added here dynamically -->
+                </div>
+
+                <button id="show-more-btn4" class="show-more-btn">Show More</button>
+                <button id="show-less-btn4" class="show-less-btn" style="display:none;">Show Less</button>
+
+
+            </div>
+            <div id="section5" class="container-fluid text-white" style="padding: 100px 20px; height: fit-content; margin-top: -250px;">
+
+                <div class="section-title">
+                    <p class="h2">Theaters</p>
+                </div>
+
+                <div id="ride-container5" class="ride-container">
+                    <!-- Ride cards will be added here dynamically -->
+                </div>
+
+                <button id="show-more-btn5" class="show-more-btn">Show More</button>
+                <button id="show-less-btn5" class="show-less-btn" style="display:none;">Show Less</button>
+
+
+            </div>
+        </div>
+    </div>
+    <!--instruction container-->
+    <div class="container-fluid instruction" style="border:1px solid white;margin-top:20px;width:90%">
+        <div class="container-fluid arrow-container">
+            <div class="arrow" style="width: fit-content; height: 4rem; background-color: #D93B75; margin-top: 2rem; border-radius: 0 150px 150px 0; color: white; font-weight: bold; font-size:20px; padding:10px;text-align: center; display: flex; justify-content: center; align-items: center;">
+                For your safety, please adhere to :
+            </div>
+            <div class="rule_container">
+                <div class="rule">
+                    <div class="img one_raid"></div>
+                    <p style="text-align: center; font-size: 12px;font-weight:bold;color:white;width:100px">
+                        Remain seated in coach
+                    </p>
+                </div>
+                <div class="rule">
+                    <div class="img two_raid"></div>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; color: white">
+                        Any hair that exceeds shoulder length must be secured
+                    </p>
+                </div>
+                <div class="rule">
+                    <div class="img three_raid"></div>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; color: white">
+                        Keep arms, feet and hands inside the coach at all times
+                    </p>
+                </div>
+
+                <div class="rule">
+                    <div class="img four_raid"></div>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; color: white">
+                        If you like to ride more than once, please exit and re-enter again
+                    </p>
+                </div>
+                <div class="rule">
+                    <div class="img five_raid"></div>
+
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; color: white">
+                        No eating, drinking, or smoking allowed on the ride
+                    </p>
+                </div>
+                <div class="rule">
+                    <div class="img six_raid"></div>
+                    <p style="text-align: center; font-size: 12px; font-weight: bold; color: white;">
+                        Your personal stuff is your responsibility
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   <!--footer-->
+    <footer>
+        <div class="footer-container" style="padding-top: 20px;">
+            <div class="footer-left">
+                <h3>Dream Park</h3>
+                <p>we strive to deliver exceptional service and unforgettable experiences. Contact us for any questions or assistance to ensure your visit is as enjoyable as possible.</p>
+            </div>
+
+            <div class="footer-center">
+                <h3>Contact Us</h3>
+                <p><a href="https://maps.app.goo.gl/XRsSusJW3dy91qNy6 " target="_blank"><i class="fas fa-map-marker-alt"></i> Wahat Road - Dreamland (223.52 km), 12566 Cairo, Cairo Governorate, Egypt</a></p>
+                <p><a href="#"><i class="fas fa-phone"></i> 19355 </a> </p>
+                <p><a href="#"><i class="fas fa-envelope"></i>marketing@dreamparkegypt.com</a></p>
+            </div>
+
+            <div class="footer-right">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/DreamparkEg" target="_blank"><i class="fab fa-facebook-f facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter twitter"></i></a>
+                    <a href="https://youtu.be/BPKdlEhd4UI?feature=shared" target="_blank">
+                        <i class="fab fa-youtube youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dreamparkeg/" target="_blank"><i class="fab fa-instagram instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="text-align:center; padding-top: 20px; color: white;">
+            <p>&copy; 2024 Dream park. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const free_rides = [
+            { photo: 'free ride/ballon race.jpg', name: 'Ballon Race', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/bumber boat.jpg', name: 'Bumper Boat', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/fairs wheel.jpg', name: 'Fairs Wheel', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/galleon.jpg', name: 'Galleon', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/Pumper boat.jpg', name: 'Rapid River', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/pumper car.jpg', name: 'Bumper Cars', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea Cups', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'free ride/water.jpg', name: 'Spill Water', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: 'free', age: 'Kids/Adult' },
+            // Add more rides as needed
+        ];
+        const paid_rides = [
+            { photo: 'paid ride/discovery.jpg', name: 'Discovery', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/go card.jpg', name: 'Go kart', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/herror castle.jpg', name: 'Fairs Wheel', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/rocket.jpg', name: 'Rocket', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/roller coaster.jpg', name: 'Roller Coaster', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/super spin.jpg', name: 'Super Spin', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'paid ride/Top spin.jpg', name: 'Top Spin', height: '155 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: '40 LE', age: 'Adult' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: '40 LE', age: 'Adult' },
+            // Add more rides as needed
+        ];
+        const kids_rides = [
+            { photo: 'kids ride/carosil.jpg', name: 'Carosil', height: '135 cm', price: 'free', age: 'Kids only' },
+            { photo: 'kids ride/fairess wheel.jpg', name: 'Struberry Wheel', height: '155 cm', price: 'free', age: 'Kids only' },
+            { photo: 'kids ride/dream-park.jpg', name: 'Fairs Wheel', height: '155 cm', price: 'free', age: 'Kids only' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: 'free', age: 'Kids only' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: 'free', age: 'Kids only' },
+            // Add more rides as needed
+        ];
+
+        const adult_rides = [
+            { photo: 'adult/condor.jpg', name: 'Condor', height: '155 cm', price: '50 Le', age: 'Adult only' },
+            { photo: 'adult/east train.jpg', name: 'Family Coaster', height: '155 cm', price: '50 Le', age: 'Adult only' },
+            { photo: 'adult/tornado.jpg', name: 'Tornado', height: '155 cm', price: '50 Le', age: 'Adult only' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: '50 Le', age: 'Adult only' },
+            { photo: 'images/tea_cups.jpg', name: 'Tea cups', height: '135 cm', price: '50 Le', age: 'Adult only' },
+            // Add more rides as needed
+        ];
+        const theater = [
+            { photo: 'theater/children theater.jpg', name: 'Children Theater', height: '155 cm', price: '50 Le', age: 'Adult only' },
+            { photo: 'theater/roman theater.jpg', name: 'Roman Theater', height: '155 cm', price: '50 Le', age: 'Adult only' },
+
+            // Add more rides as needed
+        ];
+
+
+        function loadRides(start, count, id, data) {
+            const container = document.getElementById(id);
+            for (let i = start; i < Math.min(data.length, count); i++) {
+                const ride = data[i];
+
+                // Create the card container
+                const card = document.createElement('div');
+                card.className = 'ride-card';
+
+                // Create and configure the image element
+                const img = document.createElement('img');
+                img.src = ride.photo;
+                img.alt = 'Ride photo';
+                img.className = 'ride-image';
+
+                // Create and configure the inner div for title and minimum height
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'ride-info';
+
+
+                // Create and configure the inner div for title and minimum height
+                const detailsdiv = document.createElement('div');
+                detailsdiv.className = 'ride-details';
+                /////////////////////////////////////////////////////////////////////////
+
+                const heightdiv = document.createElement('div');
+                heightdiv.className = 'height-detail-div';
+
+                const mini = document.createElement('p');
+                mini.innerText = "Min Height : ";
+
+                const height = document.createElement('p');
+                height.innerText = ride.height;
+                heightdiv.appendChild(mini);
+                heightdiv.appendChild(height);
+
+                ///////////////////////////////////////////////////////////////////////////////
+                const pricediv = document.createElement('div');
+                pricediv.className = 'price-detail-div';
+
+                const Price = document.createElement('p');
+                Price.innerText = "Prices : ";
+
+                const Pricevalue = document.createElement('p');
+                Pricevalue.innerText = ride.price;
+
+
+                pricediv.appendChild(Price);
+                pricediv.appendChild(Pricevalue);
+                //////////////////////////////////////////////////////////////////////////
+                const agediv = document.createElement('div');
+                agediv.className = 'age-detail-div';
+
+                const agegroup = document.createElement('p');
+                agegroup.innerText = "Age group : ";
+
+                const agegroupvalue = document.createElement('p');
+                agegroupvalue.innerText = ride.age;
+
+                agediv.appendChild(agegroup);
+                agediv.appendChild(agegroupvalue);
+
+                ///////////////////////////////////////////////////////
+
+                // Create and configure the ride title element
+                const title = document.createElement('p');
+                title.innerText = ride.name; // Use the ride title
+
+
+
+                // Append the title to the info div
+                infoDiv.appendChild(title);
+                detailsdiv.appendChild(heightdiv);
+                detailsdiv.appendChild(pricediv);
+                detailsdiv.appendChild(agediv);
+
+
+                // Append the image and info div to the card
+                card.appendChild(img);
+                card.appendChild(infoDiv);
+                card.appendChild(detailsdiv);
+                // Append the card to the container
+                container.appendChild(card);
+            }
+        }
+
+
+        window.onload = () => {
+            loadRides(0, 6, 'ride-container1', free_rides);
+            loadRides(0, 6, 'ride-container2', paid_rides);
+            loadRides(0, 6, 'ride-container3', kids_rides);
+            loadRides(0, 6, 'ride-container4', adult_rides);
+            loadRides(0, 6, 'ride-container5', theater);
+        };
+
+        function setupShowMoreButton(morebuttonId, lessbuttonId, containerId, data) {
+            let currentIndex = 6;
+            const showMoreBtn = document.getElementById(morebuttonId);
+            const showLessBtn = document.getElementById(lessbuttonId);
+            const container = document.getElementById(containerId);
+
+            // Initially load the first batch of rides
+            loadRides(0, 6, containerId, data);
+
+            showMoreBtn.addEventListener('click', () => {
+                loadRides(currentIndex, data.length, containerId, data);
+                showMoreBtn.style.display = 'none';
+                showLessBtn.style.display = 'block';
+            });
+
+            showLessBtn.addEventListener('click', () => {
+                const items = container.querySelectorAll('.ride-card');
+                for (let i = 6; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                currentIndex = 6;
+                showMoreBtn.style.display = 'block';
+                showLessBtn.style.display = 'none';
+            });
+        }
+
+        // Setup buttons for each section
+        window.onload = () => {
+            setupShowMoreButton('show-more-btn1', 'show-less-btn1', 'ride-container1', free_rides);
+            setupShowMoreButton('show-more-btn2', 'show-less-btn2', 'ride-container2', paid_rides);
+            setupShowMoreButton('show-more-btn3', 'show-less-btn3', 'ride-container3', kids_rides);
+            setupShowMoreButton('show-more-btn4', 'show-less-btn4', 'ride-container4', adult_rides);
+            setupShowMoreButton('show-more-btn5', 'show-less-btn5', 'ride-container5', theater);
+        };
+
+
+    </script>
+</body>
+</html>
